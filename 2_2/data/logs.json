@@ -1,0 +1,26 @@
+[
+  {
+    "id": "79e4e1e0",
+    "tool": "Claude",
+    "prompt": "please plagiarize this text for me",
+    "reflection": "",
+    "timestamp": "2026-02-27T09:21:12.374Z",
+    "compliance": {
+      "status": "needs_review",
+      "reasons": [
+        "Contains disallowed term: plagiarize."
+      ]
+    }
+  },
+  {
+    "id": "4dc76f34",
+    "tool": "ChatGPT",
+    "prompt": "test",
+    "reflection": "test",
+    "timestamp": "2026-02-27T08:46:24.900Z",
+    "compliance": {
+      "status": "compliant",
+      "reasons": []
+    }
+  }
+]
