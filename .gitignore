@@ -1,0 +1,38 @@
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# --- Node / JavaScript (both 2_2 and 2_3/2_2_REVISED) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Common build outputs (if you add any later)
+dist/
+build/
+coverage/
+.cache/
+
+# --- App-specific local persistence ---
+# ignore only the generated runtime file, not the folder
+2_2/data/logs.json
+
+# If the revised version also has a similar local file, ignore it too (harmless if absent)
+2_3/2_2_REVISED/data/logs.json
+
+# --- Optional: runtime temp files ---
+*.pid
+*.seed
+*.tgz
