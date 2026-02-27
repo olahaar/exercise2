@@ -1,12 +1,4 @@
 # TDT4242 – Exercise 2
-
-This repository is structured to mirror the three tasks in **Exercise 2** and to keep each deliverable self-contained and easy to grade.
-
-- The official assignment text is in [exercise2.pdf](exercise2.pdf).
-- Each task folder contains the written deliverable(s) for that task.
-
-- The runnable code lives only in the prototype folders (original + revised).
-
 ## Repository layout
 
 ### Task 2.1 – Prompting strategy
