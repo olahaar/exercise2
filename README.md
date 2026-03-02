@@ -4,11 +4,11 @@
 ### Task 2.1 – Prompting strategy
 - Folder: [2_1/](2_1/)
 - Written deliverable:
-  - Markdown: [2_1/2_1_introduction.md](2_1/2_1_introduction.md)
-  - PDF export: [2_1/2_1_introduction.pdf](2_1/2_1_introduction.pdf)
+  - PDF: [2_1/2_1_introduction.pdf](2_1/2_1_introduction.pdf)
 
 ### Task 2.2 – AI-based code generation
 - Folder: [2_2/](2_2/)
+- Deliverable note: The “document” for Task 2.2 is the README in this folder (no separate report/PDF is required). It includes the GitHub repo link, run instructions, architecture/component explanations, AI-vs-manual notes, and references the execution screenshots.
 - Runnable full-stack prototype:
   - Backend: [2_2/server.js](2_2/server.js)
   - Frontend (served by Express): [2_2/public/](2_2/public/)
@@ -19,11 +19,10 @@
 ### Task 2.3 – Code review + improvements
 - Folder: [2_3/](2_3/)
 - Written deliverable:
-  - Markdown: [2_3/2_3_review.md](2_3/2_3_review.md)
-  - PDF export: [2_3/2_3_review.pdf](2_3/2_3_review.pdf)
+  - PDF: [2_3/2_3_review.pdf](2_3/2_3_review.pdf)
 - Revised implementation (post-review refactor): [2_3/2_2_REVISED/](2_3/2_2_REVISED/)
   - Documentation: [2_3/2_2_REVISED/README.md](2_3/2_2_REVISED/README.md)
 
 ### Sources / references
 - Folder: [sources/](sources/)
-This is supporting material used to do Task 2.2.
+This is supporting material from exercise 1 to do Task 2.2.
