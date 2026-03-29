@@ -7,9 +7,9 @@ const { randomUUID } = require('crypto');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-const HOST = '127.0.0.1';
-const DATA_PATH = path.join(__dirname, 'data', 'logs.json');
-const DIST_PATH = path.join(__dirname, 'dist');
+const HOST = process.env.HOST || '127.0.0.1';
+const DATA_PATH = process.env.DATA_PATH || path.join(__dirname, 'data', 'logs.json');
+const DIST_PATH = process.env.DIST_PATH || path.join(__dirname, 'dist');
 const DIST_INDEX = path.join(DIST_PATH, 'index.html');
 const ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:5173';
 
@@ -289,6 +289,33 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: 'Unexpected error, please retry.' });
 });
 
-app.listen(PORT, HOST, () => {
-  console.log(`Server running on http://${HOST}:${PORT}`);
-});
+function startServer({ port = PORT, host = HOST } = {}) {
+  return new Promise((resolve) => {
+    const server = app.listen(port, host, () => {
+      console.log(`Server running on http://${host}:${port}`);
+      resolve(server);
+    });
+  });
+}
+
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = {
+  app,
+  startServer,
+  __testUtils: {
+    RULES,
+    guidelines,
+    loadLogs,
+    saveLogs,
+    serializeWrite,
+    trimString,
+    validateLogInput,
+    evaluateCompliance,
+    buildDeclarationText,
+    DATA_PATH,
+    DIST_INDEX
+  }
+};
