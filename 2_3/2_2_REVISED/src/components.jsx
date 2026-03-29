@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 function StatusPill({ compliance }) {
   if (!compliance) return null;
   const cls = compliance.status === 'compliant' ? 'ok' : 'warn';
@@ -6,13 +8,13 @@ function StatusPill({ compliance }) {
 }
 
 function LogCard({ entry, onReflection, onDelete }) {
-  const [draft, setDraft] = React.useState(entry.reflection || '');
-  const [busy, setBusy] = React.useState(false);
-  const [deleteBusy, setDeleteBusy] = React.useState(false);
-  const [error, setError] = React.useState('');
-  const [saved, setSaved] = React.useState(false);
+  const [draft, setDraft] = useState(entry.reflection || '');
+  const [busy, setBusy] = useState(false);
+  const [deleteBusy, setDeleteBusy] = useState(false);
+  const [error, setError] = useState('');
+  const [saved, setSaved] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setDraft(entry.reflection || '');
   }, [entry.reflection]);
 
@@ -61,7 +63,7 @@ function LogCard({ entry, onReflection, onDelete }) {
             title="Delete"
             disabled={deleteBusy}
           >
-            🗑️
+            Delete
           </button>
           <StatusPill compliance={entry.compliance} />
         </div>
@@ -96,7 +98,7 @@ function LogCard({ entry, onReflection, onDelete }) {
 }
 
 function PromptForm({ onSubmit, busy }) {
-  const [form, setForm] = React.useState({ tool: '', prompt: '', reflection: '' });
+  const [form, setForm] = useState({ tool: '', prompt: '', reflection: '' });
 
   const submit = async (event) => {
     event.preventDefault();
@@ -164,7 +166,7 @@ function DeclarationPanel({ declaration, declBusy, declUpdated, onRefresh }) {
         <div className="stack">
           <pre className="declaration declaration-output">{declaration.declaration_text}</pre>
           <div className="meta">
-            Total logs: {declaration.total_logs} · Compliant: {declaration.compliant_logs} · Needs review: {declaration.needs_review_logs}
+            Total logs: {declaration.total_logs} - Compliant: {declaration.compliant_logs} - Needs review: {declaration.needs_review_logs}
           </div>
           {declUpdated && <div className="meta">Updated: {declUpdated}</div>}
         </div>
@@ -193,11 +195,7 @@ function LogList({ logs, onReflection, onDelete }) {
   );
 }
 
-window.UIComponents = {
-  StatusPill,
-  LogCard,
-  PromptForm,
-  GuidelinesPanel,
-  DeclarationPanel,
-  LogList
+export {
+  DeclarationPanel, GuidelinesPanel, LogCard, LogList, PromptForm, StatusPill
 };
+

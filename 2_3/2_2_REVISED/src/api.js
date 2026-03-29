@@ -18,7 +18,7 @@ async function request(path, options = {}) {
   return response.json();
 }
 
-window.apiClient = {
+export const apiClient = {
   async getGuidelines() {
     const data = await request('/api/guidelines');
     return data.guidelines || [];

@@ -9,6 +9,8 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const HOST = '127.0.0.1';
 const DATA_PATH = path.join(__dirname, 'data', 'logs.json');
+const DIST_PATH = path.join(__dirname, 'dist');
+const DIST_INDEX = path.join(DIST_PATH, 'index.html');
 const ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:5173';
 
 const RULES = {
@@ -264,7 +266,22 @@ app.get('/api/declaration', async (_req, res, next) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(DIST_PATH));
+
+app.get('*', async (req, res, next) => {
+  if (req.path.startsWith('/api/')) {
+    return next();
+  }
+
+  try {
+    await fs.access(DIST_INDEX);
+    return res.sendFile(DIST_INDEX);
+  } catch {
+    return res.status(404).json({
+      error: 'Frontend build not found. Run "npm run dev" for development, or "npm run build" then "npm start".'
+    });
+  }
+});
 
 app.use((err, _req, res, _next) => {
   // Avoid leaking internal errors

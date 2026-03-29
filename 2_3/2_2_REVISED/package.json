@@ -5,12 +5,24 @@
   "description": "Task 2.2 full-stack prototype for AI usage logging and compliance",
   "main": "server.js",
   "scripts": {
+    "prestart": "npm run build",
     "start": "node server.js",
-    "dev": "NODE_ENV=development node server.js"
+    "dev": "concurrently -k \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "NODE_ENV=development node server.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "helmet": "^7.1.0"
+    "helmet": "^7.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.1.2",
+    "vite": "^5.4.19"
   }
 }

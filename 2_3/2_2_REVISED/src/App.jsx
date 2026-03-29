@@ -1,7 +1,7 @@
-const { PromptForm, GuidelinesPanel, DeclarationPanel, LogList } = window.UIComponents;
-const { useDashboardData } = window.AppHooks;
+import { PromptForm, GuidelinesPanel, DeclarationPanel, LogList } from './components';
+import { useDashboardData } from './hooks';
 
-function App() {
+export default function App() {
   const {
     guidelines,
     logs,
@@ -42,5 +42,3 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
