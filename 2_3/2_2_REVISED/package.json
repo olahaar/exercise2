@@ -5,6 +5,7 @@
   "description": "Task 2.2 full-stack prototype for AI usage logging and compliance",
   "main": "server.js",
   "scripts": {
+    "test": "vitest",
     "prestart": "npm run build",
     "start": "node server.js",
     "dev": "concurrently -k \"npm:dev:server\" \"npm:dev:client\"",
@@ -22,7 +23,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.3",
+    "@vitest/coverage-v8": "^4.1.2",
     "concurrently": "^9.1.2",
-    "vite": "^5.4.19"
+    "vite": "^5.4.19",
+    "vitest": "^4.1.2"
   }
 }
