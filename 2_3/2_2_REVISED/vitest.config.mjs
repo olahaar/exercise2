@@ -14,7 +14,7 @@ export default mergeConfig(viteConfig, defineConfig({
       provider: 'v8',
       reporter: ['text', 'html', 'json-summary'],
       reportsDirectory: 'coverage',
-      include: ['server.js', 'src/api.js'],
+      include: ['server.js', 'src/**'],
       exclude: ['tests/**', 'node_modules/**'],
       thresholds: {
         lines: 60,
